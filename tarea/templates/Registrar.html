@@ -1,5 +1,5 @@
 {% extends "nav.html"%}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
 
 <main class="container">
@@ -49,7 +49,7 @@
             </form>
         </section>
 
-        <img src={% staticfiles 'icono.ico' %}"> alt="">
+        <img src={% static 'icono.ico' %}"> alt="">
     </div>
 </main>
 {% endblock %}
