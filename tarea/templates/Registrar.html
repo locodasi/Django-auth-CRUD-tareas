@@ -1,0 +1,53 @@
+{% extends "nav.html"%}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <section class="col-md-4 offset-md-4">
+            <form method="POST" class="card card-body mt-5">
+                <h1 class="text-center">Registro</h1>
+            
+                <p class="text-center">{{error}}</p>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username">Usuario:</label>
+    
+      
+                    <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username" placeholder="Escribe tu usuario" class="form-control">
+                    
+                      <br>
+                      <span class="helptext">Requerido. 150 caracteres o menos. Letras, Digitos and @/./+/-/_ solamentes.</span>
+                </div>  
+                <div class="mb-3">
+                    <label for="id_password1">Contraseña:</label>
+                  
+                    
+                    <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" class="form-control" placeholder="Escribe tu contraseña">
+                    
+                      <br>
+                    <span class="helptext">
+                        <ul>
+                            <li>Tu contraseña no pude ser similar a tu otra informacion personal.</li>
+                            <li>Tu contraseña debe contener minimo 8 caracteres.</li>
+                            <li>Tu constraseña no puede ser una constraseña comun.</li>
+                            <li>Tu constraseña no pueden ser solo numeros.</li>
+                        </ul>
+                    </span>
+                </div> 
+                
+                <div class="mb-3">
+                    <label for="id_password2">Confirmar constraseña:</label>
+                  
+                    
+                    <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" class="form-control" placeholder="Confirma tu contraseña"> 
+                </div> 
+
+                <button class="btn btn-dark">
+                     Registrar
+                </button>
+            </form>
+        </section>
+    </div>
+</main>
+{% endblock %}

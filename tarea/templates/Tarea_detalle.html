@@ -1,0 +1,38 @@
+{% extends "nav.html"%}
+
+{% block content%}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <form method="post" class="card card-body mt-5">
+                <h1 class="text-center text-secondary">Detalle de tareas</h1>
+                <p class="text-center">{{error}}</p>
+
+                {% csrf_token %}
+                {{form}}
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-dark">
+                        Actualizar
+                    </button>
+                    {% if tarea.fecha_completada == Null%}
+                    <button type="submit" formaction={% url 'completar_tarea' tarea.id %} class="btn btn-primary">
+                        Completar
+                    </button>
+                    {% endif %}
+                    <button type="submit" formaction={% url 'eliminar_tarea' tarea.id %} class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<!--
+<h3>Titulo: {{tarea.titulo}}</h3>
+<p>descripcion: {{tarea.descripcion}}</p>
+<p>Fecha de creacion: {{tarea.fecha_creacion}}</p>
+<p>importante: {% if tarea.importante %}✔️{% else %}❌{% endif %}</p>
+-->
+{%endblock%}

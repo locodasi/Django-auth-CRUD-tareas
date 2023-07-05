@@ -1,0 +1,22 @@
+{% extends "nav.html"%}
+
+{% block content%}
+<main class="container py-5">
+    <section class="card card-body">
+        <h1 class="display-1 text-center">Django App</h1>
+        <p>Aplicacion creada en Django que permite crear un usuario y registrar tareas, modificarlas y eliminarlas, asi como ver las pendientes como las completas.
+            Todo esto con rutas protegidas y usando formularios propios.
+            Los estilos estan hechos con Bootstrap 
+        </p>
+
+        <div class="text-center">
+            <a class="btn btn-dark" href={% url "abrir_sesion" %}>
+                Ingresar
+            </a>
+            <a class="btn btn-dark" href={% url "registrar" %}>
+                Registrarse
+            </a>
+        </div>
+    </section>
+</main>
+{%endblock%}

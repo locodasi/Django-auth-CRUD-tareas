@@ -1,0 +1,28 @@
+{% extends "nav.html"%}
+
+{% block content%}
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Tareas {{tipo}}</h1>
+
+            <ul class="list-group">
+                {% for t in tareas %}
+                <a class="list-group-item" href={% url "detalle_tarea" t.id %}>
+                    <header class="d-flex justify-content-between">
+                        <h3>{% if t.importante %}⚠️{% endif %}{{t.titulo}}</h3>
+                        <p>{{t.user.username}}</p>
+                    </header>
+                    
+                    
+                    <p>{{ t.descripcion|slice:":30"|default:'' }}{% if t.descripcion|length > 30 %}...{% endif %}</p>
+                    {% if t.fecha_completada != None %}<p>Fecha de finalizacion: {{t.fecha_completada|date:"j M Y"}}</p>
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{%endblock%}
